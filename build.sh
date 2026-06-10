@@ -14,6 +14,7 @@ OUTPUT="process_dumper.exe"
 # --- Source files ------------------------------------------------------------
 SOURCES=(
     "PE_Parser/parser.cpp"
+    "memory_dumper/dumper.cpp"
     "entry_point.cpp"
 )
 

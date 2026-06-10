@@ -62,10 +62,20 @@ bool PE_PARSER::parse(){
         read_at(file, pe.e_lfanew + 0x16, pe.characteristics);
 
         // OPTIONAL HEADER
-        read_at(file, pe.e_lfanew + 0x18, pe.magic_optional);
+        read_at(file, pe.e_lfanew + 0x18, pe.magic_optional); // primero magic
         read_at(file, pe.e_lfanew + 0x28, pe.entry_point);
         read_at(file, pe.e_lfanew + 0x50, pe.size_of_image);
         read_at(file, pe.e_lfanew + 0x54, pe.size_of_headers);
+
+        if(pe.magic_optional == 0x20B){
+            read_at(file, pe.e_lfanew + 0x30, pe.image_base);
+            read_at(file, pe.e_lfanew + 0x5C, pe.subsystem);
+        } else {
+            DWORD ib32;
+            read_at(file, pe.e_lfanew + 0x1C, ib32);
+            pe.image_base = ib32;
+            read_at(file, pe.e_lfanew + 0x44, pe.subsystem);
+        }
         if(pe.magic_optional == 0x20B) read_at(file, pe.e_lfanew + 0x5C, pe.subsystem); // x64
         else read_at(file, pe.e_lfanew + 0x44, pe.subsystem); // x86
 
