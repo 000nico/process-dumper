@@ -56,5 +56,4 @@ Output file: `<process_name>_dump.exe`
 - The reconstructed PE is suitable for static analysis (IDA, PE-bear, Ghidra)
 - The IAT will contain resolved addresses from the original process — it is not rebuilt
 
-# Info
 https://www.sunshine2k.de/reversing/tuts/tut_pe.htm
