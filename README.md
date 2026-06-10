@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-https://www.sunshine2k.de/reversing/tuts/tut_pe.htm
-=======
 # process-dumper
 
 Dumps a running process to a reconstructed PE file. Reads the process image from memory, fixes section alignment, and writes a valid PE to disk.
@@ -58,4 +55,6 @@ Output file: `<process_name>_dump.exe`
 
 - The reconstructed PE is suitable for static analysis (IDA, PE-bear, Ghidra)
 - The IAT will contain resolved addresses from the original process — it is not rebuilt
->>>>>>> c3c3b1d687c177e3fb07b07bba614c596c41fc53
+
+# Info
+https://www.sunshine2k.de/reversing/tuts/tut_pe.htm
